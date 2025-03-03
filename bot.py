@@ -152,34 +152,22 @@ def create_summary_flex(user_data):
                     "contents": [
                         {
                             "type": "text",
-                            "text": f"Bill Length: {user_data['bill_length_mm']} mm",
+                            "text": f"Bill Length: {user_data['Glucose']} mm",
                             "size": "md",
                             "color": "#37474F"
                         },
                         {
                             "type": "text",
-                            "text": f"Bill Depth: {user_data['bill_depth_mm']} mm",
+                            "text": f"Bill Length: {user_data['Insulin']} mm",
                             "size": "md",
                             "color": "#37474F"
                         },
                         {
                             "type": "text",
-                            "text": f"Flipper Length: {user_data['flipper_length_mm']} mm",
+                            "text": f"Bill Length: {user_data['BMI']} mm",
                             "size": "md",
                             "color": "#37474F"
                         },
-                        {
-                            "type": "text",
-                            "text": f"Body Mass: {user_data['body_mass_g']} g",
-                            "size": "md",
-                            "color": "#37474F"
-                        },
-                        {
-                            "type": "text",
-                            "text": f"Sex: {user_data['sex']}",
-                            "size": "md",
-                            "color": "#37474F"
-                        }
                     ]
                 },
                 {
