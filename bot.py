@@ -42,25 +42,20 @@ def handle_message(event):
 
     if user_input in ["help", "ช่วยเหลือ", "วิธีใช้", "สอบถาม"]:
         reply_text = (
-            "🔹 วิธีใช้ระบบพยากรณ์\n"
+            "🔹 วิธีใช้ระบบพยากรณ์เบาหวาน\n"
             "1️⃣ พิมพ์ 'Prediction' เพื่อเริ่มต้น\n"
             "2️⃣ บอทจะถามค่าที่ต้องกรอกทีละข้อ\n"
             "3️⃣ ตอบค่าต่างๆ ตามที่ระบบขอ\n"
             "4️⃣ หลังจากกรอกครบ ระบบจะทำการพยากรณ์ผล\n"
             "🔸 หากต้องการเริ่มใหม่ ให้พิมพ์ 'ยกเลิก'"
         )
-        reply_image=ImageSendMessage(
-            original_content_url="https://i.imgur.com/3NhBMc5.png",
-            preview_image_url="https://i.imgur.com/3NhBMc5.png"
-
-        )
-
-        line_bot_api.reply_message(event.reply_token,[TextSendMessage(text=reply_text),reply_image])
+        
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
         return
 
     if user_input in ["prediction", "พยากรณ์", "ทำนาย", "predict", "predictions"]:
         user_sessions[user_id] = {"step": 1, "data": {}}
-        reply_text = "กรุณากรอกค่า Bill Length (mm) เช่น 40.1"
+        reply_text = "กรุณากรอกค่า Glucose (mg/dL) เช่น 120"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
         return
 
@@ -75,7 +70,7 @@ def handle_message(event):
         result = response.json()
 
         if "prediction" in result:
-            reply_text = f"สายพันธุ์ที่คาดการณ์: {result['prediction']}"
+            reply_text = f"ผลลัพธ์: {result['prediction']}"
         else:
             reply_text = f"Error: {result.get('error', 'ไม่สามารถพยากรณ์ได้')}"
 
@@ -94,50 +89,28 @@ def handle_message(event):
         step = session["step"]
 
         try:
-            if step in [1, 2, 3, 4]:  
+            if step in [1, 2, 3]:  
                 if not re.match(r'^\d+(\.\d+)?$', user_input):
-                    reply_text = "กรุณากรอกเฉพาะค่าตัวเลขที่เป็นบวก เช่น 40.1"
+                    reply_text = "กรุณากรอกเฉพาะค่าตัวเลขที่เป็นบวก เช่น 120"
                     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
                     return
 
                 value = float(user_input)
 
                 if step == 1:
-                    session["data"]["bill_length_mm"] = value
-                    reply_text = "กรุณากรอกค่า Bill Depth (mm) เช่น 18.7"
+                    session["data"]["Glucose"] = value
+                    reply_text = "กรุณากรอกค่า Insulin (μU/mL) เช่น 80"
                 elif step == 2:
-                    session["data"]["bill_depth_mm"] = value
-                    reply_text = "กรุณากรอกค่า Flipper Length (mm) เช่น 190.5"
+                    session["data"]["Insulin"] = value
+                    reply_text = "กรุณากรอกค่า BMI เช่น 25.5"
                 elif step == 3:
-                    session["data"]["flipper_length_mm"] = value
-                    reply_text = "กรุณากรอกค่า Body Mass (g) เช่น 3500"
-                elif step == 4:
-                    session["data"]["body_mass_g"] = value
-                    reply_text = "กรุณาเลือกเพศของนก (MALE หรือ FEMALE)"
-                    quick_reply = QuickReply(
-                        items=[
-                            QuickReplyButton(action=MessageAction(label="MALE", text="MALE")),
-                            QuickReplyButton(action=MessageAction(label="FEMALE", text="FEMALE"))
-                        ]
-                    )
-                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text, quick_reply=quick_reply))
-                    session["step"] += 1
+                    session["data"]["BMI"] = value
+                    summary_flex = create_summary_flex(session["data"])
+                    line_bot_api.reply_message(event.reply_token, summary_flex)
                     return
 
                 session["step"] += 1
-
-            elif step == 5:
-                session["data"]["sex"] = user_input.upper()
-
-                if session["data"]["sex"] not in ["MALE", "FEMALE"]:
-                    reply_text = "กรุณาเลือกเพศเป็น 'MALE' หรือ 'FEMALE' เท่านั้น"
-                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
-                    return
-
-                summary_flex = create_summary_flex(session["data"])
-                line_bot_api.reply_message(event.reply_token, summary_flex)
-                return
-
+        
         except ValueError:
             reply_text = "กรุณากรอกค่าตัวเลขที่ถูกต้อง"
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
@@ -145,6 +118,7 @@ def handle_message(event):
 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
         return
+
 
 def create_summary_flex(user_data):
     flex_message = {
