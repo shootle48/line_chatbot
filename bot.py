@@ -131,7 +131,7 @@ def create_summary_flex(user_data):
         "body": {
             "type": "box",
             "layout": "vertical",
-            "backgroundColor": "#E3F2FD", 
+            "backgroundColor": "#9dc050", 
             "cornerRadius": "md",
             "paddingAll": "lg",
             "contents": [
@@ -140,7 +140,7 @@ def create_summary_flex(user_data):
                     "text": "ข้อมูลของคุณ",
                     "weight": "bold",
                     "size": "xl",
-                    "color": "#1976D2",  
+                    "color": "#ffffff",  
                     "align": "center"
                 },
                 {
@@ -156,21 +156,21 @@ def create_summary_flex(user_data):
                     "contents": [
                         {
                             "type": "text",
-                            "text": f"Glucose: {user_data['Glucose']} mm",
+                            "text": f"Bill Length: {user_data['Glucose']} mm",
                             "size": "md",
-                            "color": "#37474F"
+                            "color": "#4f4f4f"
                         },
                         {
                             "type": "text",
-                            "text": f"Insulin: {user_data['Insulin']} mm",
+                            "text": f"Bill Length: {user_data['Insulin']} mm",
                             "size": "md",
-                            "color": "#37474F"
+                            "color": "#4f4f4f"
                         },
                         {
                             "type": "text",
-                            "text": f"BMI: {user_data['BMI']} mm",
+                            "text": f"Bill Length: {user_data['BMI']} mm",
                             "size": "md",
-                            "color": "#37474F"
+                            "color": "#4f4f4f"
                         },
                     ]
                 },
@@ -184,7 +184,7 @@ def create_summary_flex(user_data):
                     "text": "ข้อมูลของคุณถูกต้องหรือไม่?",
                     "margin": "sm",
                     "size": "md",
-                    "color": "#1976D2",
+                    "color": "#ffffff",
                     "align": "center",
                     "weight": "bold"
                 }
@@ -200,7 +200,7 @@ def create_summary_flex(user_data):
                 {
                     "type": "button",
                     "style": "primary",
-                    "color": "#42A5F5",
+                    "color": "#4a7337",
                     "action": {
                         "type": "message",
                         "label": "ถูกต้อง",
@@ -212,7 +212,7 @@ def create_summary_flex(user_data):
                 {
                     "type": "button",
                     "style": "secondary",
-                    "color": "#90A4AE",
+                    "color": "#704012",
                     "action": {
                         "type": "message",
                         "label": "ยกเลิก",
