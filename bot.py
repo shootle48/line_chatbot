@@ -131,58 +131,61 @@ def create_summary_flex(user_data):
         "body": {
             "type": "box",
             "layout": "vertical",
-            "backgroundColor": "#9dc050", 
+            "backgroundColor": "#9dc050",
             "cornerRadius": "md",
-            "paddingAll": "xl",
+            "paddingAll": "lg",
             "contents": [
                 {
                     "type": "text",
-                    "text": "ข้อมูลสุขภาพของท่าน",
+                    "text": "📋 สรุปข้อมูลของคุณ",
                     "weight": "bold",
                     "size": "xl",
-                    "color": "#ffffff",  
+                    "color": "#ffffff",
                     "align": "center"
                 },
                 {
                     "type": "separator",
-                    "margin": "lg",
-                    "color": "#ffffff"
+                    "margin": "md",
+                    "color": "#B0BEC5"
                 },
                 {
                     "type": "box",
                     "layout": "vertical",
-                    "margin": "lg",
-                    "spacing": "xs",
+                    "margin": "md",
+                    "spacing": "sm",
                     "contents": [
                         {
                             "type": "text",
-                            "text": f"ระดับน้ำตาลในเลือด (mg/dL): {user_data['Glucose']} mm",
+                            "text": f"🔹 Glucose: {user_data['Glucose']} mg/dL",
                             "size": "md",
-                            "color": "#4f4f4f"
+                            "color": "#ffffff",
+                            "weight": "bold"
                         },
                         {
                             "type": "text",
-                            "text": f"ระดับอินซูลิน (μU/mL): {user_data['Insulin']} mm",
+                            "text": f"🔹 Insulin: {user_data['Insulin']} µU/mL",
                             "size": "md",
-                            "color": "#4f4f4f"
+                            "color": "#ffffff",
+                            "weight": "bold"
                         },
                         {
                             "type": "text",
-                            "text": f"ค่าดัชนีมวลกาย BMI (kg/m²): {user_data['BMI']} mm",
+                            "text": f"🔹 BMI: {user_data['BMI']}",
                             "size": "md",
-                            "color": "#4f4f4f"
-                        },
+                            "color": "#ffffff",
+                            "weight": "bold"
+                        }
                     ]
                 },
                 {
                     "type": "separator",
-                    "margin": "lg",
-                    "color": "#ffffff"
+                    "margin": "md",
+                    "color": "#B0BEC5"
                 },
                 {
                     "type": "text",
-                    "text": "ยืนยันข้อมูลของท่านหรือไม่?",
-                    "margin": "lg",
+                    "text": "📌 กรุณาตรวจสอบข้อมูลก่อนยืนยัน",
+                    "margin": "md",
                     "size": "md",
                     "color": "#ffffff",
                     "align": "center",
@@ -193,9 +196,9 @@ def create_summary_flex(user_data):
         "footer": {
             "type": "box",
             "layout": "vertical",
-            "backgroundColor": "#9dc050",  
+            "backgroundColor": "#9dc050",
             "cornerRadius": "md",
-            "paddingAll": "md",
+            "paddingAll": "sm",
             "contents": [
                 {
                     "type": "button",
@@ -203,7 +206,7 @@ def create_summary_flex(user_data):
                     "color": "#4a7337",
                     "action": {
                         "type": "message",
-                        "label": "ยืนยันข้อมูล",
+                        "label": "✅ ยืนยัน",
                         "text": "ยืนยันข้อมูล"
                     },
                     "height": "sm",
@@ -211,11 +214,11 @@ def create_summary_flex(user_data):
                 },
                 {
                     "type": "button",
-                    "style": "primary",
+                    "style": "secondary",
                     "color": "#704012",
                     "action": {
                         "type": "message",
-                        "label": "ยกเลิก",
+                        "label": "❌ ยกเลิก",
                         "text": "ยกเลิก"
                     },
                     "height": "sm",
