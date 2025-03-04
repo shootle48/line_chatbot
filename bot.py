@@ -193,7 +193,7 @@ def create_summary_flex(user_data):
         "footer": {
             "type": "box",
             "layout": "vertical",
-            "backgroundColor": "#BBDEFB",  
+            "backgroundColor": "#9dc050",  
             "cornerRadius": "md",
             "paddingAll": "sm",
             "contents": [
@@ -211,7 +211,7 @@ def create_summary_flex(user_data):
                 },
                 {
                     "type": "button",
-                    "style": "secondary",
+                    "style": "primary",
                     "color": "#704012",
                     "action": {
                         "type": "message",
