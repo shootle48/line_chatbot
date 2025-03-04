@@ -59,7 +59,7 @@ def handle_message(event):
 
     if user_input in ["prediction", "พยากรณ์", "ทำนาย", "predict", "predictions"]:
         user_sessions[user_id] = {"step": 1, "data": {}}
-        reply_text = "กรุณากรอกค่า Glucose (mg/dL) เช่น 120"
+        reply_text = "กรุณากรอกระดับน้ำตาลในเลือด (mg/dL) → เช่น 90"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
         return
 
@@ -103,10 +103,10 @@ def handle_message(event):
 
                 if step == 1:
                     session["data"]["Glucose"] = value
-                    reply_text = "กรุณากรอกค่า Insulin (μU/mL) เช่น 80"
+                    reply_text = "กรุณากรอกระดับอินซูลิน (μU/mL) → เช่น 15"
                 elif step == 2:
                     session["data"]["Insulin"] = value
-                    reply_text = "กรุณากรอกค่า BMI เช่น 25.5"
+                    reply_text = "กรุณากรอกค่าดัชนีมวลกาย BMI (kg/m²) → เช่น 22.5:"
                 elif step == 3:
                     session["data"]["BMI"] = value
                     summary_flex = create_summary_flex(session["data"])
