@@ -49,8 +49,11 @@ def handle_message(event):
             "4️⃣ หลังจากกรอกครบ ระบบจะทำการพยากรณ์ผล\n"
             "🔸 หากต้องการเริ่มใหม่ ให้พิมพ์ 'ยกเลิก'"
         )
-        
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
+        reply_image = ImageSendMessage(
+            original_content_url="https://imgur.com/a/hEpsCKI",
+            preview_image_url="https://imgur.com/a/hEpsCKI"
+        )
+        line_bot_api.reply_message(event.reply_token, [TextSendMessage(text=reply_text), reply_image])
         return
 
     if user_input in ["prediction", "พยากรณ์", "ทำนาย", "predict", "predictions"]:
@@ -81,7 +84,7 @@ def handle_message(event):
     if user_input == "ยกเลิก":
         del user_sessions[user_id]  
         reply_text = "ข้อมูลถูกยกเลิก กรุณาเริ่มใหม่"
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text)) 
         return
 
     if user_id in user_sessions:
