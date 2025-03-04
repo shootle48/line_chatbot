@@ -137,7 +137,7 @@ def create_summary_flex(user_data):
             "contents": [
                 {
                     "type": "text",
-                    "text": "ข้อมูลของคุณ",
+                    "text": "ข้อมูลสุขภาพของท่าน",
                     "weight": "bold",
                     "size": "xl",
                     "color": "#ffffff",  
@@ -146,7 +146,7 @@ def create_summary_flex(user_data):
                 {
                     "type": "separator",
                     "margin": "sm",
-                    "color": "#B0BEC5"
+                    "color": "#ffffff"
                 },
                 {
                     "type": "box",
@@ -177,11 +177,11 @@ def create_summary_flex(user_data):
                 {
                     "type": "separator",
                     "margin": "sm",
-                    "color": "#B0BEC5"
+                    "color": "#ffffff"
                 },
                 {
                     "type": "text",
-                    "text": "ข้อมูลของคุณถูกต้องหรือไม่?",
+                    "text": "ยืนยันข้อมูลของท่านหรือไม่?",
                     "margin": "sm",
                     "size": "md",
                     "color": "#ffffff",
@@ -203,7 +203,7 @@ def create_summary_flex(user_data):
                     "color": "#4a7337",
                     "action": {
                         "type": "message",
-                        "label": "ถูกต้อง",
+                        "label": "ยืนยันข้อมูล",
                         "text": "ยืนยันข้อมูล"
                     },
                     "height": "sm",
