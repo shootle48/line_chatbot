@@ -156,19 +156,19 @@ def create_summary_flex(user_data):
                     "contents": [
                         {
                             "type": "text",
-                            "text": f"Bill Length: {user_data['Glucose']} mm",
+                            "text": f"ระดับน้ำตาลในเลือด (mg/dL): {user_data['Glucose']} mm",
                             "size": "md",
                             "color": "#4f4f4f"
                         },
                         {
                             "type": "text",
-                            "text": f"Bill Length: {user_data['Insulin']} mm",
+                            "text": f"ระดับอินซูลิน (μU/mL): {user_data['Insulin']} mm",
                             "size": "md",
                             "color": "#4f4f4f"
                         },
                         {
                             "type": "text",
-                            "text": f"Bill Length: {user_data['BMI']} mm",
+                            "text": f"ค่าดัชนีมวลกาย BMI (kg/m²): {user_data['BMI']} mm",
                             "size": "md",
                             "color": "#4f4f4f"
                         },
