@@ -133,7 +133,7 @@ def create_summary_flex(user_data):
             "layout": "vertical",
             "backgroundColor": "#9dc050", 
             "cornerRadius": "md",
-            "paddingAll": "lg",
+            "paddingAll": "xl",
             "contents": [
                 {
                     "type": "text",
@@ -145,13 +145,13 @@ def create_summary_flex(user_data):
                 },
                 {
                     "type": "separator",
-                    "margin": "sm",
+                    "margin": "lg",
                     "color": "#ffffff"
                 },
                 {
                     "type": "box",
                     "layout": "vertical",
-                    "margin": "sm",
+                    "margin": "lg",
                     "spacing": "xs",
                     "contents": [
                         {
@@ -176,13 +176,13 @@ def create_summary_flex(user_data):
                 },
                 {
                     "type": "separator",
-                    "margin": "sm",
+                    "margin": "lg",
                     "color": "#ffffff"
                 },
                 {
                     "type": "text",
                     "text": "ยืนยันข้อมูลของท่านหรือไม่?",
-                    "margin": "sm",
+                    "margin": "lg",
                     "size": "md",
                     "color": "#ffffff",
                     "align": "center",
@@ -195,7 +195,7 @@ def create_summary_flex(user_data):
             "layout": "vertical",
             "backgroundColor": "#9dc050",  
             "cornerRadius": "md",
-            "paddingAll": "sm",
+            "paddingAll": "md",
             "contents": [
                 {
                     "type": "button",
