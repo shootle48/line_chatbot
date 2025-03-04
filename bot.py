@@ -50,8 +50,8 @@ def handle_message(event):
             "🔸 หากต้องการเริ่มใหม่ ให้พิมพ์ 'ยกเลิก'"
         )
         reply_image = ImageSendMessage(
-            original_content_url="https://imgur.com/a/hEpsCKI",
-            preview_image_url="https://imgur.com/a/hEpsCKI"
+            original_content_url="https://i.imgur.com/RO1qyeb.png",
+            preview_image_url="https://i.imgur.com/RO1qyeb.png"
         )
         line_bot_api.reply_message(event.reply_token, [TextSendMessage(text=reply_text), reply_image])
         return
