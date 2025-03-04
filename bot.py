@@ -156,19 +156,19 @@ def create_summary_flex(user_data):
                     "contents": [
                         {
                             "type": "text",
-                            "text": f"Bill Length: {user_data['Glucose']} mm",
+                            "text": f"Glucose: {user_data['Glucose']} mm",
                             "size": "md",
                             "color": "#37474F"
                         },
                         {
                             "type": "text",
-                            "text": f"Bill Length: {user_data['Insulin']} mm",
+                            "text": f"Insulin: {user_data['Insulin']} mm",
                             "size": "md",
                             "color": "#37474F"
                         },
                         {
                             "type": "text",
-                            "text": f"Bill Length: {user_data['BMI']} mm",
+                            "text": f"BMI: {user_data['BMI']} mm",
                             "size": "md",
                             "color": "#37474F"
                         },
